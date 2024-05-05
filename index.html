@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>This is Yuvraj's Sci-Fi Website</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background-color: #0f0f0f;
+            color: #ffffff;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            text-align: center;
+            padding: 50px 0;
+        }
+
+        .header h1 {
+            font-size: 48px;
+            color: #00ff00;
+        }
+
+        .main-content {
+            background-color: #000000;
+            padding: 50px;
+            text-align: center;
+        }
+
+        .login-box {
+            background-color: #1a1a1a;
+            padding: 20px;
+            border-radius: 10px;
+            display: inline-block;
+        }
+
+        .login-box h2 {
+            font-size: 24px;
+            color: #00ff00;
+            margin-bottom: 20px;
+        }
+
+        .login-box label {
+            color: #00ff00;
+            font-size: 18px;
+        }
+
+        .login-box input[type="text"],
+        .login-box input[type="password"],
+        .login-box input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #00ff00;
+            border-radius: 5px;
+            background-color: #1a1a1a;
+            color: #ffffff;
+            font-size: 16px;
+        }
+
+        .typing-box {
+            background-color: #1a1a1a;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+            margin-top: 50px;
+        }
+
+        .typing-box input[type="text"] {
+            width: 80%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #00ff00;
+            border-radius: 5px;
+            background-color: #1a1a1a;
+            color: #ffffff;
+            font-size: 16px;
+        }
+
+        .typing-box .typed-text {
+            font-size: 20px;
+            font-weight: bold;
+            color: #00ff00;
+        }
+
+        .page-link {
+            color: #00ff00;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        input[type="file"] {
+            display: none;
+        }
+
+        label.upload-label {
+            display: block;
+            width: 200px;
+            margin: 20px auto;
+            padding: 10px;
+            border: 2px solid #00ff00;
+            border-radius: 5px;
+            cursor: pointer;
+            color: #00ff00;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>This is Yuvraj's Sci-Fi Website</h1>
+    </div>
+    <div class="main-content">
+        <div class="login-box" id="loginSection">
+            <h2>Login</h2>
+            <form id="loginForm">
+                <label for="username">Username:</label><br>
+                <input type="text" id="username" name="username" required><br><br>
+                <label for="password">Password:</label><br>
+                <input type="password" id="password" name="password" required><br><br>
+                <input type="submit" value="Go to Next">
+            </form>
+        </div>
+
+        <div id="contentSection" style="display: none;">
+            <h2>Welcome to 2nd Page</h2>
+            <div class="typing-box">
+                <input type="text" id="userInput" class="typing-input" placeholder="Type something...">
+                <div id="output" class="typed-text"></div>
+            </div>
+            <p class="page-link" id="page3Link">Page 3</p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+            if (username === "cumple surry edith.user" && password === "123#edith") {
+                document.getElementById("loginSection").style.display = "none";
+                document.getElementById("contentSection").style.display = "block";
+            } else {
+                alert("Incorrect username or password.");
+            }
+        });
+
+        document.getElementById("userInput").addEventListener("keyup", function(event) {
+            if (event.keyCode === 13) {
+                event.preventDefault();
+                var inputText = document.getElementById("userInput").value;
+                var outputDiv = document.getElementById("output");
+                outputDiv.innerHTML += "<p class='typed-text'>" + inputText + "</p>";
+                document.getElementById("userInput").value = "";
+            }
+        });
+
+        document.getElementById("page3Link").addEventListener("click", function() {
+            window.open("page3.html", "_blank");
+        });
+    </script>
+</body>
+</html>
